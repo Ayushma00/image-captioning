@@ -1,0 +1,19 @@
+body{
+  background-color:#FAEBD7;
+  text align:center;
+}
+.text{
+  font-size: 3rem;
+text-align: center;
+font-style: oblique;
+font-weight: bold;
+color: purple;
+text-shadow:  3px  2px #9932CC;
+
+}
+.box{
+  border-radius: 7px;
+  padding: 4px;
+  width: 30%;
+  background-color: #FFF8DC;
+}

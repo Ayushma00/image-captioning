@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densityDpi=device-dpi, width=device-width, height=device-height, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_page/bootstrap.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'main_page/index.css' %}">
+    <title>Image Caption</title>
+  </head>
+
+  <body>
+    <br><br>
+    <form action="{% url 'app:index' %}" method="post">
+    <h1 class="text-center p-4 text">{{text}}</h1>
+    {% csrf_token %}
+<hr>
+<div class="text-center p-4">
+  <button type="submit" name="button" class="box">GO BACK</button>
+</div>
+
+  </form>
+</body>
+</html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var audio = new Audio("{% static 'main_page/sound.mp3' %}");
+    audio.play();
+});
+</script>

@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densityDpi=device-dpi, width=device-width, height=device-height, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_page/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main_page/index.css' %}">
+    <style media="screen">
+    .image-upload>input {
+      display: none;
+      }
+    </style>
+    <title>Image Caption</title>
+  </head>
+  <body>
+    <h1 class="text">Image Captioning</h1>
+    <form  method="post" action="{% url 'app:predict' %}" enctype="multipart/form-data">
+   {% csrf_token %}
+   <div class="text-center pt-4 image-upload">
+     <label for="file-input">
+    <img width="30%" src="https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg"/>
+  </label>
+     <input id="file-input"  type="file" name="myfile"  accept="image/*" onchange="loadFile(event)">
+   </div>
+   <div  class="text-center p-1">
+     <button class="box" type="submit">Predict</button>
+   </div>
+   <p class="text-center pt-2"><img id="output" width="90%" /></p>
+   </form>
+  {{text}}
+  </body>
+</html>
+
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
